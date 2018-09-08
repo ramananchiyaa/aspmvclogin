@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using login.Models;
+namespace login.Controllers
+{
+    public class loginController : Controller
+    {
+        // GET: login
+        public ActionResult Index()
+        {
+            return View();
+        }
+            
+        public ActionResult Check(login.Models.datum Usermodel)
+        {
+            using (loginEntities1 db = new loginEntities1())
+            {
+                var user = db.data.Where(x => x.username == Usermodel.username && x.password == Usermodel.password).FirstOrDefault();
+                if (user != null)
+                {
+
+                    return RedirectToAction("Index","Default");
+                }
+                   
+
+            }
+            return View();
+
+
+        }
+      
+
+    }
+}

@@ -1,0 +1,55 @@
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    *{
+        background-image: linear-gradient(270deg,lightgreen,lightblue)
+     }
+</style>
+
+<h2>MarkSheet</h2>
+<table>
+    <tr>
+        <th>Tamil</th>
+        <td><input type="text" id="t1" /></td>
+    </tr>
+    <tr>
+        <th>English</th>
+        <td><input type="text" id="t2" /></td>
+    </tr>
+    <tr>
+        <th>Maths</th>
+        <td><input type="text" id="t3" /></td>
+    </tr>
+    <tr>
+        <th>Science</th>
+        <td><input type="text" id="t4" /></td>
+    </tr>
+    <tr>
+        <th>Social</th>
+        <td><input type="text" id="t5" /></td>
+    </tr>
+</table>
+<button onclick="get()">Add</button>
+<h3 id="res"></h3>
+<h3 id="jes"></h3>
+<script>
+    function get()
+    {
+        var a = document.getElementById("t1").value;
+        var b = document.getElementById("t2").value;
+        var c = document.getElementById("t3").value;
+        var d = document.getElementById("t4").value;
+        var e = document.getElementById("t5").value;
+
+        var f = (parseFloat(a) + parseFloat(b) + parseFloat(c) + parseFloat(d) + parseFloat(e));
+        var avg = (parseFloat(a) + parseFloat(b) + parseFloat(c) + parseFloat(d) + parseFloat(e)) / 5;
+
+        if(!isNaN(f))
+        {
+            document.getElementById("res").innerHTML = "Result " + "\t" + f;
+            document.getElementById("jes").innerHTML = "Average" + "\t" + avg;
+        }
+    }
+</script>
+
